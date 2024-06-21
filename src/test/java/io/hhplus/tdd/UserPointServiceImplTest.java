@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.when;
 
 public class UserPointServiceImplTest {
 
@@ -38,7 +39,7 @@ public class UserPointServiceImplTest {
         UserPoint userPoint = new UserPoint(1L,10000,System.currentTimeMillis());
 
         //when
-        userPointServiceImpl.usePoint(1L, amount);
+        when(userPointTable.selectById(1L)).thenReturn(userPoint);
 
         //then
         // 사용할 금액보다 보유 포인트가 적을 시 IllegalArgumentException을 던지게 하여서 해당 메시지와 비교....
