@@ -41,7 +41,7 @@ public class UserPointServiceImplTest {
         userPointServiceImpl.usePoint(1L, amount);
 
         //then
-        // 사용할 금액보다 보유 포인트가 적을 시 IllegalArgumentException을 던지게 하여서 해당 메시지와 비교.
+        // 사용할 금액보다 보유 포인트가 적을 시 IllegalArgumentException을 던지게 하여서 해당 메시지와 비교...
         assertThatThrownBy(() -> userPointServiceImpl.usePoint(1L,amount)).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("포이트가 부족합니다.");
 
