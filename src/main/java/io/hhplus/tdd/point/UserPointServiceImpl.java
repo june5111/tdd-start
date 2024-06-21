@@ -43,11 +43,11 @@ public class UserPointServiceImpl implements UserPointService {
 
         UserPoint userPoint = userPointTable.selectById(id);
 
-        if(userPoint.point() == 0) {
+        if(userPoint.point() == 0) { // 포인트가 0 일시 IllegalArgumentException으로 예외 날리기
             throw new IllegalArgumentException("포인트가 없습니다.");
         }
 
-        if(userPoint.point() < amount) {
+        if(userPoint.point() < amount) { // 보유 포인트가 amount보다 작을 때 IllegalArgumentException으로 예외 날리기
             throw new IllegalArgumentException("포이트가 부족합니다.");
         }
 
